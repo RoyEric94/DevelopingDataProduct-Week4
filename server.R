@@ -65,6 +65,8 @@ shinyServer(function(input, output) {
     # Build main plot
     output$mainPredPlot <- renderPlot({
 
+        plotTitle <- paste(input$yAxis,"distribution by", input$xAxis)
+        
         ggplot(data = iris) + 
             geom_point(mapping = aes(x = xAxis(), y = yAxis(), color = Species)) + 
             xlab(input$xAxis) + 
