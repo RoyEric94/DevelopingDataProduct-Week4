@@ -3,6 +3,8 @@ title: "Week 4 Assignment Presentation"
 author: "Eric Roy"
 date: "23/10/2020"
 output: ioslides_presentation
+background-image: black-and-silver-182.jpg
+css: style.css
 ---
 
 ```{r setup, include=FALSE}

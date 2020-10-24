@@ -1,0 +1,12 @@
+.title-slide hgroup h1 {
+	color: white;
+}
+
+h2 {
+	color: white;
+}
+slides > slide {
+	background-image: url("black-and-silver-182.jpg");
+	color:#D8D8D8
+	/*color: #BDBDBD*/
+}
