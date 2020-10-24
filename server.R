@@ -43,12 +43,10 @@ shinyServer(function(input, output) {
         control <- trainControl(method='cv', number=10)
         
         # Build model formula
-        test1 <- paste("Species ~ ", input$xAxis)
-        test2 <- paste(test1, "+")
-        test3 <- paste(test2, input$yAxis)
+        modelFormula <- paste("Species ~ ", input$xAxis, "+", input$yAxis)
         
         # Build model
-        model <- train(formula(test3), data=iris, method='lda', trControl=control)
+        model <- train(formula(modelFormula), data=iris, method='lda', trControl=control)
         
         # Get user inputs
         xPredInput <- input$xAxisPred
@@ -60,7 +58,6 @@ shinyServer(function(input, output) {
         
         modelPred <- predict(model, newData)
     })
-    
     
     # Build main plot
     output$mainPredPlot <- renderPlot({
@@ -93,5 +90,4 @@ shinyServer(function(input, output) {
         as.character(modelPred())
     })
     
-
 })

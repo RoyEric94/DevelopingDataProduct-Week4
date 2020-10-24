@@ -5,8 +5,9 @@ account: royeric94
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3084025
-bundleId: 3775550
+bundleId: 3776233
 url: https://royeric94.shinyapps.io/DevelopingDataProducts-Week4Assignment/
-when: 1603481032.29467
+when: 1603498286.67326
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: Week4Assignment-Presentation.html|Week4Assignment-Presentation.Rmd

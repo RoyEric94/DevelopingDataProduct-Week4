@@ -1,0 +1,53 @@
+---
+title: "Week 4 Assignment Presentation"
+author: "Eric Roy"
+date: "23/10/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+  library(caret)
+```
+
+## Analyzing and predicting flower species (Iris Dataset)
+
+The iris dataset contains various information about four species of flowers. 
+
+The information includes:
+
+- The flower's sepal length
+- The flower's sepal width
+- The flower's petal length
+- The flower's petal width
+
+## Application summary
+
+From this information, it is possible to build a prediction model to try and predict the species of flower based on new information.
+
+This application does just that. The users selects two of the 4 available fields, then sets each value using sliders. 
+
+## Feature plot of the Iris dataset
+
+```{r iris}
+  plot(iris, col = iris$Species)
+```
+
+## Model Example
+
+In this example, the user chose the Sepal Length for the first feature, and the Petal Width for the second. Using the slider, the user selected a sepal length of 5.7 and a petal width of 1.3
+
+```{r Running Code, echo=TRUE}
+  
+  # Build model formula
+  modelFormula <- paste("Species ~ ", "Sepal.Length", 
+                        "+", "Petal.Width")
+  # Build model
+  model <- train(formula(modelFormula), data=iris, method='lda', 
+                 trControl=trainControl(method='cv', number=10))
+  newData <- data.frame("xPredInput" = 5.7,"yPredInput" = 1.3)
+  names(newData)[names(newData) == "xPredInput"] <- "Sepal.Length"
+  names(newData)[names(newData) == "yPredInput"] <- "Petal.Width"
+  modelPred <- predict(model, newData)
+  paste("Predicted species:",as.character(modelPred))
+```
